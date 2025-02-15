@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+    <PropertyGroup>
+        <CompanyName>Brys</CompanyName>
+        <ProductName>Brys.Identity</ProductName>
+        <Version>0.0.1</Version>
+        <OutputPath>output\$(Configuration)\</OutputPath>
+        <LangVersion>latest</LangVersion>
+        <TargetFramework>net9.0</TargetFramework>
+        <AnalysisLevel>latest-Recommended</AnalysisLevel>
+        <NuGetAuditMode>all</NuGetAuditMode>
+        <WarningsAsErrors>NU1902;NU1903;NU1904</WarningsAsErrors>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+</Project>

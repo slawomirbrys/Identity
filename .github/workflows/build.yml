@@ -1,0 +1,11 @@
+name: build
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, ${{ github.actor }}! You just triggered a build."
+        
+      - name: Checkout code
+        uses: actions/checkout@v2

@@ -9,3 +9,6 @@ jobs:
         
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Restore
+        run: dotnet restore

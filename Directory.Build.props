@@ -4,7 +4,6 @@
         <CompanyName>Brys</CompanyName>
         <ProductName>Brys.Identity</ProductName>
         <Version>0.0.1</Version>
-        <OutputPath>output\$(Configuration)\</OutputPath>
         <LangVersion>latest</LangVersion>
         <TargetFramework>net9.0</TargetFramework>
         <AnalysisLevel>latest-Recommended</AnalysisLevel>

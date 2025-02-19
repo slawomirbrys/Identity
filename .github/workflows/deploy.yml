@@ -2,9 +2,11 @@ name: Deploy to Azure
 run-name: Deploy
 
 on:
-  workflow_run: [ "build" ]
-  types:
-    - completed
+  workflow_run:
+    workflows: 
+      - "Build"
+    types:
+      - completed
 
 jobs:
 

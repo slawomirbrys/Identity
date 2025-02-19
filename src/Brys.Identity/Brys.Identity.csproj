@@ -3,7 +3,7 @@
     <PropertyGroup>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <OutputPath>..\output\$(Configuration)\</OutputPath>
+        <OutputPath>..\..\output\$(Configuration)\</OutputPath>
     </PropertyGroup>
 
     <ItemGroup>

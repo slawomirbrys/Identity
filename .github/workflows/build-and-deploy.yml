@@ -1,5 +1,5 @@
-name: build
-run-name: Build
+name: build-and-deploy
+run-name: Build & Deploy
 
 on: [ push ]
 jobs:
@@ -28,3 +28,25 @@ jobs:
         with:
           name: build-output
           path: ./output/Release/net9.0/publish
+
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: Build
+    
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: build-output
+
+      - name: List files
+        run: ls -R .
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.IDENTITY_AZURE_WEB_NAME }}
+          publish-profile: ${{ secrets.IDENTITY_AZURE_WEB_PROFILE }}
+          package: ./build-output

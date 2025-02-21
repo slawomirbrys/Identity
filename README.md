@@ -1,4 +1,4 @@
-[![build](https://github.com/slawomirbrys/Identity/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/slawomirbrys/Identity/actions/workflows/build.yml)
+[![build-and-deploy](https://github.com/slawomirbrys/Identity/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/slawomirbrys/Identity/actions/workflows/build-and-deploy.yml)
 
 # Identity
 

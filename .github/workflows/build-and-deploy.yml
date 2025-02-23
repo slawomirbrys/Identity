@@ -40,9 +40,6 @@ jobs:
           name: build-output
           path: build-output
 
-      - name: List files
-        run: ls -R .
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2

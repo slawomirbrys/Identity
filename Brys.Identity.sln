@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder", "SolutionF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brys.Identity", "src\Brys.Identity\Brys.Identity.csproj", "{D6B3C4DF-A514-48E1-8E74-479779DF12AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brys.IdentityDemoApp", "src\Brys.IdentityDemoApp\Brys.IdentityDemoApp.csproj", "{10A227F8-D578-4B12-BE05-5A8D883B5504}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,5 +24,9 @@ Global
 		{D6B3C4DF-A514-48E1-8E74-479779DF12AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6B3C4DF-A514-48E1-8E74-479779DF12AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6B3C4DF-A514-48E1-8E74-479779DF12AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10A227F8-D578-4B12-BE05-5A8D883B5504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10A227F8-D578-4B12-BE05-5A8D883B5504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10A227F8-D578-4B12-BE05-5A8D883B5504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10A227F8-D578-4B12-BE05-5A8D883B5504}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

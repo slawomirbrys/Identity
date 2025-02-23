@@ -4,6 +4,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputPath>..\..\output\$(Configuration)\</OutputPath>
+        <RootNamespace>Brys.Identity</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

@@ -11,7 +11,7 @@ builder.Services.AddAuthentication(options =>
     .AddCookie("Cookies")
     .AddOpenIdConnect("oidc", options =>
     {
-        options.Authority = "https://localhost:5001";
+        options.Authority = "https://identity.brys.cloud";
 
         options.ClientId = "web";
         options.ClientSecret = "secret";
@@ -20,6 +20,7 @@ builder.Services.AddAuthentication(options =>
         options.Scope.Clear();
         options.Scope.Add("openid");
         options.Scope.Add("profile");
+        options.GetClaimsFromUserInfoEndpoint = true;
 
         options.MapInboundClaims = false; // Don't rename claim types
 
@@ -43,6 +44,6 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapRazorPages().RequireAuthorization();;
+app.MapRazorPages();
 
 app.Run();

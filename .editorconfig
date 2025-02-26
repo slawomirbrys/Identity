@@ -1,0 +1,4 @@
+
+# Disable CA1861 for files in the 'Migrations' folder
+[**/Migrations/**.cs]
+dotnet_diagnostic.CA1861.severity = none

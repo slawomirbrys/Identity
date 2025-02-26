@@ -14,13 +14,13 @@ try
 
     builder.Host.UseSerilog((ctx, lc) => lc
         .WriteTo.Console(
-            outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}",
+            outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] [{SourceContext}] {Message:lj} {Exception}{NewLine}",
             formatProvider: CultureInfo.InvariantCulture)
         .Enrich.FromLogContext()
         .ReadFrom.Configuration(ctx.Configuration));
 
     var app = builder
-        .ConfigureServices()
+        .ConfigureServices(builder.Configuration)
         .ConfigurePipeline();
 
     app.Run();

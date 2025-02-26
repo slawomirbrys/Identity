@@ -1,13 +1,20 @@
+using System.Reflection;
 using Brys.Identity.Pages;
+using Duende.IdentityServer.EntityFramework.DbContexts;
+using Duende.IdentityServer.EntityFramework.Mappers;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 namespace Brys.Identity;
 
 internal static class HostingExtensions
 {
-    public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
+    public static WebApplication ConfigureServices(this WebApplicationBuilder builder, IConfiguration configuration)
     {
         builder.Services.AddRazorPages();
+        
+        var connectionString = configuration.GetConnectionString("DefaultConnection");
+        var migrationsAssembly = typeof(Program).GetTypeInfo().Assembly.GetName().Name;
 
         var isBuilder = builder.Services.AddIdentityServer(options =>
             {
@@ -21,6 +28,21 @@ internal static class HostingExtensions
 
                 // see https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/
                 options.EmitStaticAudienceClaim = true;
+            })
+            .AddConfigurationStore(options =>
+            {
+                options.ConfigureDbContext = ctx =>
+                    ctx.UseSqlServer(connectionString,
+                        sql => sql.MigrationsAssembly(migrationsAssembly));
+            })
+            .AddOperationalStore(options =>
+            {
+                options.ConfigureDbContext = ctx =>
+                    ctx.UseSqlServer(connectionString,
+                        sql => sql.MigrationsAssembly(migrationsAssembly));
+
+                options.EnableTokenCleanup = true;
+                options.TokenCleanupInterval = 3600;
             })
             .AddTestUsers(TestUsers.Users);
 
@@ -67,6 +89,8 @@ internal static class HostingExtensions
             app.UseDeveloperExceptionPage();
         }
 
+        InitializeDatabase(app);
+
         app.UseStaticFiles();
         app.UseRouting();
         app.UseIdentityServer();
@@ -76,5 +100,42 @@ internal static class HostingExtensions
             .RequireAuthorization();
 
         return app;
+    }
+
+    private static void InitializeDatabase(IApplicationBuilder app)
+    {
+        using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>()!.CreateScope())
+        {
+            serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
+
+            var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
+            context.Database.Migrate();
+            if (!context.Clients.Any())
+            {
+                foreach (var client in Config.Clients)
+                {
+                    context.Clients.Add(client.ToEntity());
+                }
+                context.SaveChanges();
+            }
+
+            if (!context.IdentityResources.Any())
+            {
+                foreach (var resource in Config.IdentityResources)
+                {
+                    context.IdentityResources.Add(resource.ToEntity());
+                }
+                context.SaveChanges();
+            }
+
+            if (!context.ApiScopes.Any())
+            {
+                foreach (var resource in Config.ApiScopes)
+                {
+                    context.ApiScopes.Add(resource.ToEntity());
+                }
+                context.SaveChanges();
+            }
+        }
     }
 }

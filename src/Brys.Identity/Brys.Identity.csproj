@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <OutputPath>..\..\output\$(Configuration)\</OutputPath>
         <RootNamespace>Brys.Identity</RootNamespace>
+        <UserSecretsId>09f32080-bd0a-449f-af7a-e1908569a6e7</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>

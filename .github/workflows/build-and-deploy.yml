@@ -44,14 +44,14 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ env.IDENTITY_AZURE_WEB_NAME }}
+          app-name: ${{ vars.IDENTITY_AZURE_WEB_NAME }}
           publish-profile: ${{ secrets.IDENTITY_AZURE_WEB_PROFILE }}
           package: ./build-output
 
       - name: Azure App Service Settings
         uses: Azure/appservice-settings@v1
         with:
-          app-name: ${{ env.IDENTITY_AZURE_WEB_NAME }}
+          app-name: ${{ vars.IDENTITY_AZURE_WEB_NAME }}
           app-settings-json: '[
             {
               "name": "ConnectionStrings:DefaultConnection",

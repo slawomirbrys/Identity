@@ -25,8 +25,17 @@ public sealed class SecurityHeadersAttribute : ActionFilterAttribute
             }
 
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-            var csp =
-                "default-src 'self'; object-src 'none'; frame-ancestors 'none'; sandbox allow-forms allow-same-origin allow-scripts; base-uri 'self';";
+            var csp = new string[]
+            {
+                "default-src 'self'",
+                "style-src 'self' https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
+                "script-src 'self' https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js",
+                "object-src 'none'",
+                "frame-ancestors 'none'",
+                "sandbox allow-forms allow-same-origin allow-scripts",
+                "base-uri 'self'"
+            };
+
             // also consider adding upgrade-insecure-requests once you have HTTPS in place for production
             //csp += "upgrade-insecure-requests;";
             // also an example if you need client images to be displayed from twitter
@@ -35,7 +44,7 @@ public sealed class SecurityHeadersAttribute : ActionFilterAttribute
             // once for standards compliant browsers
             if (!context.HttpContext.Response.Headers.ContainsKey("Content-Security-Policy"))
             {
-                context.HttpContext.Response.Headers.Append("Content-Security-Policy", csp);
+                context.HttpContext.Response.Headers.Append("Content-Security-Policy", String.Join("; ", csp));
             }
 
             // and once again for IE

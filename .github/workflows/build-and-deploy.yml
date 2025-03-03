@@ -51,7 +51,7 @@ jobs:
       - name: Azure App Service Settings
         uses: Azure/appservice-settings@v1
         with:
-          app-name: ${{ vars.IDENTITY_AZURE_WEB_NAME }}
+          app-name: ${{ vars.IDENTITY_AZURE_WEB_NAME_FULL }}
           app-settings-json: '[
             {
               "name": "ConnectionStrings:DefaultConnection",

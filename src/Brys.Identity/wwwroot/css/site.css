@@ -1,5 +1,38 @@
-﻿.welcome-page .logo {
+:root {
+  --bs-nav-link-color: #007bff; /* Example color */
+  --bs-nav-link-hover-color: #0056b3; /* Example color */
+}
+
+[data-bs-theme=light] .theme-icon-dark {
+  display: none;
+}
+
+[data-bs-theme=dark] .theme-icon-light {
+  display: none;
+}
+
+.theme-icon-dark,
+.theme-icon-light {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.theme-toggle:hover {
+  opacity: 0.8;
+}
+
+.welcome-page .logo {
   width: 64px;
+}
+.welcome-page li {
+  list-style: none;
+  padding: 4px;
 }
 
 .icon-banner {
@@ -11,11 +44,6 @@
   padding-bottom: 40px;
 }
 
-.welcome-page li {
-  list-style: none;
-  padding: 4px;
-}
-
 .logged-out-page iframe {
   display: none;
   width: 0;
@@ -24,7 +52,7 @@
 
 .grants-page .card {
   margin-top: 20px;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid var(--bs-border-color);
 }
 .grants-page .card .card-title {
   font-size: 120%;
@@ -37,3 +65,5 @@
 .grants-page .card label {
   font-weight: bold;
 }
+
+/*# sourceMappingURL=site.css.map */

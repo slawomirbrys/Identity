@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AspNetCore.SassCompiler" />
         <PackageReference Include="Duende.IdentityServer" />
         <PackageReference Include="Duende.IdentityServer.Configuration.EntityFramework" />
         <PackageReference Include="Duende.IdentityServer.EntityFramework" />

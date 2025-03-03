@@ -1,0 +1,12 @@
+﻿{
+  "Source": "wwwroot/css",
+  "Target": "wwwroot/css",
+  "Arguments": "--style=expanded",
+  "IncludePaths": ["wwwroot/css"],
+
+  "Configurations": {
+    "Release": {
+      "Arguments": "--style=compressed"
+    }
+  }
+}

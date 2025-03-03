@@ -1,6 +1,43 @@
+:root {
+  --bs-nav-link-color: #007bff; /* Example color */
+  --bs-nav-link-hover-color: #0056b3; /* Example color */
+}
+
+// Theme toggle styles
+[data-bs-theme="light"] .theme-icon-dark {
+  display: none;
+}
+
+[data-bs-theme="dark"] .theme-icon-light {
+  display: none;
+}
+
+.theme-icon-dark,
+.theme-icon-light {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+// Theme toggle button
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 .welcome-page {
   .logo {
     width: 64px;
+  }
+
+  li {
+    list-style: none;
+    padding: 4px;
   }
 }
 
@@ -11,13 +48,6 @@
 .body-container {
   margin-top: 60px;
   padding-bottom: 40px;
-}
-
-.welcome-page {
-  li {
-    list-style: none;
-    padding: 4px;
-  }
 }
 
 .logged-out-page {
@@ -31,7 +61,7 @@
 .grants-page {
   .card {
     margin-top: 20px;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid var(--bs-border-color);
 
     .card-title {
       img {

@@ -4,6 +4,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
+    <PackageVersion Include="AspNetCore.SassCompiler" Version="1.85.1" />
     <PackageVersion Include="Duende.IdentityServer" Version="[7.1.0, )" />
     <PackageVersion Include="Duende.IdentityServer.Configuration.EntityFramework" Version="7.1.0" />
     <PackageVersion Include="Duende.IdentityServer.EntityFramework" Version="7.1.0" />

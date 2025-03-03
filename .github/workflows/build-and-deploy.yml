@@ -48,15 +48,15 @@ jobs:
           publish-profile: ${{ secrets.IDENTITY_AZURE_WEB_PROFILE }}
           package: ./build-output
 
-      - name: Azure App Service Settings
-        uses: Azure/appservice-settings@v1
-        with:
-          app-name: ${{ vars.IDENTITY_AZURE_WEB_NAME_FULL }}
-          app-settings-json: '[
-            {
-              "name": "ConnectionStrings:DefaultConnection",
-              "value": "${{ secrets.IDENTITY_SQL_CONNECTION_STRING }}",
-              "slotSetting": false
-            }
-          ]'
-          mask-inputs: true
+#      - name: Azure App Service Settings
+#        uses: Azure/appservice-settings@v1
+#        with:
+#          app-name: ${{ vars.IDENTITY_AZURE_WEB_NAME_FULL }}
+#          app-settings-json: '[
+#            {
+#              "name": "ConnectionStrings:DefaultConnection",
+#              "value": "${{ secrets.IDENTITY_SQL_CONNECTION_STRING }}",
+#              "slotSetting": false
+#            }
+#          ]'
+#          mask-inputs: true

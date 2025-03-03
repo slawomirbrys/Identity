@@ -47,7 +47,6 @@ jobs:
           app-name: ${{ vars.IDENTITY_AZURE_WEB_NAME }}
           publish-profile: ${{ secrets.IDENTITY_AZURE_WEB_PROFILE }}
           package: ./build-output
-          slot-name: production
 
       - name: Azure App Service Settings
         uses: Azure/appservice-settings@v1

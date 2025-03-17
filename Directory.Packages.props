@@ -5,12 +5,12 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="AspNetCore.SassCompiler" Version="1.85.1" />
-    <PackageVersion Include="Duende.IdentityServer" Version="[7.1.0, )" />
-    <PackageVersion Include="Duende.IdentityServer.Configuration.EntityFramework" Version="7.1.0" />
+    <PackageVersion Include="Duende.IdentityServer" Version="[7.1.1, )" />
+    <PackageVersion Include="Duende.IdentityServer.Configuration.EntityFramework" Version="7.1.1" />
     <PackageVersion Include="Duende.IdentityServer.EntityFramework" Version="7.1.1" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.Google" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.3" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.2" />
     <PackageVersion Include="Serilog" Version="4.2.0" />

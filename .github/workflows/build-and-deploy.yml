@@ -1,7 +1,10 @@
 name: build-and-deploy
 run-name: Build & Deploy
 
-on: [ push ]
+on: 
+  push:
+    branches:
+      - main
 jobs:
   Build:
     runs-on: ubuntu-latest

@@ -1,5 +1,5 @@
 name: build-and-deploy
-run-name: Build And Deploy
+run-name: Build-And-Deploy
 
 on: 
   push:

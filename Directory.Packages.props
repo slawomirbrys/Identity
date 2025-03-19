@@ -8,7 +8,7 @@
     <DuendeIdentityServer>7.1.1</DuendeIdentityServer>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="AspNetCore.SassCompiler" Version="1.85.1" />
+    <PackageVersion Include="AspNetCore.SassCompiler" Version="1.86.0" />
     <PackageVersion Include="Duende.IdentityServer" Version="$(DuendeIdentityServer)" />
     <PackageVersion Include="Duende.IdentityServer.Configuration.EntityFramework" Version="$(DuendeIdentityServer)" />
     <PackageVersion Include="Duende.IdentityServer.EntityFramework" Version="$(DuendeIdentityServer)" />

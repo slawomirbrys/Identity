@@ -1,0 +1,35 @@
+name: infra
+run-name: Infrastructure
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Azure Auth
+        uses: azure/login@v1
+        with:
+          creds: |
+            {
+              "tenantId": "${{ vars.AZURE_TENANT_ID }}",
+              "subscriptionId": "${{ vars.AZURE_SUBSCRIPTION_ID }}",
+              "clientId": "${{ vars.AZURE_CLIENT_ID }}",
+              "clientSecret": "${{ secrets.AZURE_CLIENT_SECRET }}"
+            }
+
+      - name: Validate
+        uses: azure/bicep-deploy@v2
+        with:
+          name: 'Identity-infrastructure-validation'
+          type: deployment
+          operation: validate
+          scope: resourceGroup
+          resource-group-name: brys-identity-weu
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          template-file: './infra/identity.bicep'

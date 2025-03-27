@@ -5,7 +5,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <AspNetCore>9.0.3</AspNetCore>
-    <DuendeIdentityServer>7.1.1</DuendeIdentityServer>
+    <DuendeIdentityServer>7.2.0</DuendeIdentityServer>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="AspNetCore.SassCompiler" Version="1.86.0" />

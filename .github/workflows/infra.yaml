@@ -24,6 +24,7 @@ jobs:
             }
 
       - name: Validate
+        id: validate
         uses: azure/bicep-deploy@v2
         with:
           name: 'Identity-infrastructure-validation'

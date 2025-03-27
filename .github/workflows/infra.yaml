@@ -40,7 +40,12 @@ jobs:
 
   Execute:
     runs-on: ubuntu-latest
+    needs: Validate
+
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Execute
         uses: azure/bicep-deploy@v2
         with:

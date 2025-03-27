@@ -35,4 +35,5 @@ jobs:
           template-file: './infra/identity.bicep'
 
       - name: Show result
-        run: echo "Validation result: ${{ steps.validate.outputs.result }}"
+        run: |
+          echo "Validation result: ${{ steps.validate.outputs.result }}"

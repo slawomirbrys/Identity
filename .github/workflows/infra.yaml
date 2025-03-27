@@ -38,3 +38,14 @@ jobs:
       - name: Show result
         run: |
           echo "Validation result: ${{ steps.validate.outputs.result }}"
+
+      - name: Execute
+        uses: azure/bicep-deploy@v2
+        with:
+          name: 'Identity-infrastructure-execution'
+          type: deployment
+          operation: create
+          scope: resourceGroup
+          resource-group-name: brys-identity-weu
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          template-file: './infra/identity.bicep'

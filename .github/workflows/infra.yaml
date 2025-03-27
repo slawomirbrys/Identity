@@ -33,3 +33,6 @@ jobs:
           resource-group-name: brys-identity-weu
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
           template-file: './infra/identity.bicep'
+
+      - name: Show result
+        run: echo "Validation result: ${{ steps.validate.outputs.result }}"

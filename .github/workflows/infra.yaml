@@ -1,12 +1,11 @@
-name: infra
-run-name: Infrastructure
+name: Infrastructure
 
 on:
   push:
     branches:
       - main
 jobs:
-  build:
+  Validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -39,6 +38,9 @@ jobs:
         run: |
           echo "Validation result: ${{ steps.validate.outputs.result }}"
 
+  Execute:
+    runs-on: ubuntu-latest
+    steps:
       - name: Execute
         uses: azure/bicep-deploy@v2
         with:

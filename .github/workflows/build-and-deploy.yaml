@@ -1,5 +1,4 @@
-name: build-and-deploy
-run-name: Build-And-Deploy
+name: Build and Deploy
 
 on: 
   push:
@@ -46,12 +45,13 @@ jobs:
       - name: Azure Auth
         uses: azure/login@v1
         with:
-          creds: '{
-            "tenantId": "${{ vars.AZURE_TENANT_ID }}",
-            "subscriptionId":"${{ vars.AZURE_SUBSCRIPTION_ID }}",
-            "clientId": "${{ vars.AZURE_CLIENT_ID }}",
-            "clientSecret": "${{ secrets.AZURE_CLIENT_SECRET }}"
-          }'
+          creds: |
+            {
+              "tenantId": "${{ vars.AZURE_TENANT_ID }}",
+              "subscriptionId":"${{ vars.AZURE_SUBSCRIPTION_ID }}",
+              "clientId": "${{ vars.AZURE_CLIENT_ID }}",
+              "clientSecret": "${{ secrets.AZURE_CLIENT_SECRET }}"
+            }
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp

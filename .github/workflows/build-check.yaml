@@ -1,5 +1,4 @@
-﻿name: build-check
-run-name: Build-Check
+﻿name: Build Check
 
 on: [ pull_request ]
 jobs:

@@ -4,11 +4,11 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <PropertyGroup>
-    <AspNetCore>9.0.3</AspNetCore>
-    <DuendeIdentityServer>7.2.0</DuendeIdentityServer>
+    <AspNetCore>9.0.6</AspNetCore>
+    <DuendeIdentityServer>7.2.4</DuendeIdentityServer>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="AspNetCore.SassCompiler" Version="1.86.0" />
+    <PackageVersion Include="AspNetCore.SassCompiler" Version="1.89.2" />
     <PackageVersion Include="Duende.IdentityServer" Version="$(DuendeIdentityServer)" />
     <PackageVersion Include="Duende.IdentityServer.Configuration.EntityFramework" Version="$(DuendeIdentityServer)" />
     <PackageVersion Include="Duende.IdentityServer.EntityFramework" Version="$(DuendeIdentityServer)" />

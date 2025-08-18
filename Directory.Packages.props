@@ -4,7 +4,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <PropertyGroup>
-    <AspNetCore>9.0.3</AspNetCore>
+    <AspNetCore>9.0.8</AspNetCore>
     <DuendeIdentityServer>7.2.0</DuendeIdentityServer>
   </PropertyGroup>
   <ItemGroup>

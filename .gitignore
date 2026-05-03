@@ -402,3 +402,5 @@ FodyWeavers.xsd
 
 # Duende temp key
 keys/is-signing-key-*.json
+# Local file storage data
+identity-storage/

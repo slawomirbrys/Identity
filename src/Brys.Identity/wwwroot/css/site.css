@@ -54,13 +54,13 @@
   margin-top: 20px;
   border-bottom: 1px solid var(--bs-border-color);
 }
-.grants-page .card .card-title {
-  font-size: 120%;
-  font-weight: bold;
-}
 .grants-page .card .card-title img {
   width: 100px;
   height: 100px;
+}
+.grants-page .card .card-title {
+  font-size: 120%;
+  font-weight: bold;
 }
 .grants-page .card label {
   font-weight: bold;

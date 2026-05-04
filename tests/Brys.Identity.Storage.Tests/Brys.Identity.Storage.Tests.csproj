@@ -5,6 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>Brys.Identity.Storage.Tests</RootNamespace>
+        <!-- Suppress rules that conflict with test naming/lifecycle conventions -->
+        <NoWarn>$(NoWarn);CA1001;CA1707;CA1861</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>

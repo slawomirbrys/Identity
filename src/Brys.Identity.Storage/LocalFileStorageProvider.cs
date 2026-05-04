@@ -2,7 +2,7 @@ using Microsoft.Extensions.Options;
 
 namespace Brys.Identity.Storage;
 
-public sealed class LocalFileStorageProvider : IStorageProvider
+public sealed class LocalFileStorageProvider : IStorageProvider, IDisposable
 {
     private readonly string _basePath;
     private readonly SemaphoreSlim _writeLock = new(1, 1);
@@ -55,6 +55,8 @@ public sealed class LocalFileStorageProvider : IStorageProvider
 
         return Task.FromResult(keys);
     }
+
+    public void Dispose() => _writeLock.Dispose();
 
     private string GetPath(string container, string key) =>
         Path.Combine(_basePath, container, key);

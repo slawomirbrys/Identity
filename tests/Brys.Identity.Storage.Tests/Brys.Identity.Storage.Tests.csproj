@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Brys.Identity.Storage.Tests</RootNamespace>
+        <!-- Suppress rules that conflict with test naming/lifecycle conventions -->
+        <NoWarn>$(NoWarn);CA1001;CA1707;CA1861</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="TUnit" />
+        <PackageReference Include="Moq" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\Brys.Identity.Storage\Brys.Identity.Storage.csproj" />
+    </ItemGroup>
+
+</Project>

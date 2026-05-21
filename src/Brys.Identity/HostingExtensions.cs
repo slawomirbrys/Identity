@@ -1,8 +1,5 @@
-using System.Reflection;
 using Brys.Identity.Pages;
-using Duende.IdentityServer.EntityFramework.DbContexts;
-using Duende.IdentityServer.EntityFramework.Mappers;
-using Microsoft.EntityFrameworkCore;
+using Brys.Identity.Storage.Extensions;
 using Serilog;
 
 namespace Brys.Identity;
@@ -17,8 +14,7 @@ internal static class HostingExtensions
         builder.Services.AddSassCompiler();
 #endif
 
-        var connectionString = configuration.GetConnectionString("DefaultConnection");
-        var migrationsAssembly = typeof(Program).GetTypeInfo().Assembly.GetName().Name;
+        var storagePath = configuration.GetValue<string>("Storage:BasePath") ?? "identity-storage";
 
         var isBuilder = builder.Services.AddIdentityServer(options =>
             {
@@ -33,28 +29,13 @@ internal static class HostingExtensions
                 // see https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/
                 options.EmitStaticAudienceClaim = true;
             })
-            .AddConfigurationStore(options =>
-            {
-                options.ConfigureDbContext = ctx =>
-                    ctx.UseSqlServer(connectionString,
-                        sql => sql.MigrationsAssembly(migrationsAssembly));
-            })
-            .AddOperationalStore(options =>
-            {
-                options.ConfigureDbContext = ctx =>
-                    ctx.UseSqlServer(connectionString,
-                        sql => sql.MigrationsAssembly(migrationsAssembly));
-
-                options.EnableTokenCleanup = true;
-                options.TokenCleanupInterval = 3600;
-            })
+            .AddLocalFileStorage(options => options.BasePath = storagePath)
             .AddTestUsers(TestUsers.Users);
 
         // in-memory, code config
         isBuilder.AddInMemoryIdentityResources(Config.IdentityResources);
         isBuilder.AddInMemoryApiScopes(Config.ApiScopes);
         isBuilder.AddInMemoryClients(Config.Clients);
-
 
         // if you want to use server-side sessions: https://blog.duendesoftware.com/posts/20220406_session_management/
         // then enable it
@@ -67,7 +48,6 @@ internal static class HostingExtensions
         //   );
         //builder.Services.Configure<RazorPagesOptions>(options =>
         //    options.Conventions.AuthorizeFolder("/ServerSideSessions", "admin"));
-
 
         builder.Services.AddAuthentication();
             // .AddGoogle(options =>
@@ -93,8 +73,6 @@ internal static class HostingExtensions
             app.UseDeveloperExceptionPage();
         }
 
-        InitializeDatabase(app);
-
         app.UseStaticFiles();
         app.UseRouting();
         app.UseIdentityServer();
@@ -104,14 +82,5 @@ internal static class HostingExtensions
             .RequireAuthorization();
 
         return app;
-    }
-
-    private static void InitializeDatabase(IApplicationBuilder app)
-    {
-        using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>()!.CreateScope())
-        {
-            serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
-            serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>().Database.Migrate();
-        }
     }
 }

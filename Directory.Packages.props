@@ -17,7 +17,9 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(AspNetCore)" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="$(AspNetCore)" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(AspNetCore)" />
+    <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="Serilog" Version="4.3.1" />
     <PackageVersion Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageVersion Include="TUnit" Version="0.22.0" />
   </ItemGroup>
 </Project>

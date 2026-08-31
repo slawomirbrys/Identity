@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/SolutionFolder/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="src/Brys.Identity/Brys.Identity.csproj" />
+  <Project Path="src/Brys.IdentityDemoApp/Brys.IdentityDemoApp.csproj" />
+</Solution>
